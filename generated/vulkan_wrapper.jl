@@ -7543,9 +7543,9 @@ end
 
 function _XcbSurfaceCreateInfoKHR(connection::vk.xcb_connection_t, window::vk.xcb_window_t; next = C_NULL, flags = 0)
     next = cconvert(Ptr{Cvoid}, next)
-    connection = cconvert(Ptr{xcb_connection_t}, connection)
+    connection = cconvert(Ptr{vk.xcb_connection_t}, connection)
     deps = [next, connection]
-    vks = VkXcbSurfaceCreateInfoKHR(VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR, unsafe_convert(Ptr{Cvoid}, next), flags, unsafe_convert(Ptr{xcb_connection_t}, connection), window)
+    vks = VkXcbSurfaceCreateInfoKHR(VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR, unsafe_convert(Ptr{Cvoid}, next), flags, unsafe_convert(Ptr{vk.xcb_connection_t}, connection), window)
     _XcbSurfaceCreateInfoKHR(vks, deps)
 end
 
